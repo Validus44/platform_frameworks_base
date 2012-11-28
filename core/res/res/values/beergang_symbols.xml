@@ -34,5 +34,8 @@
 
   <java-symbol type="string" name="reboot_progress" />
   <java-symbol type="string" name="reboot_system" />
+  
+  <!-- kill app long press back -->
+  <java-symbol type="string" name="app_killed_message" />
 
 </resources>
