@@ -2642,6 +2642,18 @@ public final class Settings {
         public static final String SAFE_HEADSET_VOLUME = "safe_headset_volume";
 
         /**
+         * Lockscreen translucent decor toggle
+         * @hide
+         */
+        public static final String LOCKSCREEN_TRANSLUCENT_DECOR = "lockscreen_translucent_decor";
+
+        /**
+         * Lockscreen rotation toggle
+         * @hide
+         */
+        public static final String LOCKSCREEN_ENABLE_ROTATION = "lockscreen_enable_rotation";
+
+        /**
          * Show the pending notification counts as overlays on the status bar
          * @hide
          */
