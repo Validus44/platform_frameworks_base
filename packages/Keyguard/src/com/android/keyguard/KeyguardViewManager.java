@@ -40,7 +40,6 @@ import android.os.IBinder;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.os.SystemProperties;
-import android.provider.Settings;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseArray;
@@ -141,19 +140,14 @@ public class KeyguardViewManager {
 
     private boolean shouldEnableScreenRotation() {
         Resources res = mContext.getResources();
-        return Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_ENABLE_ROTATION,
-                    res.getBoolean(R.bool.config_enableLockScreenRotation) ? 1 : 0) == 1;
         return SystemProperties.getBoolean("lockscreen.rot_override",false)
                 || res.getBoolean(R.bool.config_enableLockScreenRotation);
     }
 
     private boolean shouldEnableTranslucentDecor() {
         Resources res = mContext.getResources();
-        return Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_TRANSLUCENT_DECOR,
-                    res.getBoolean(R.bool.config_enableLockScreenTranslucentDecor) ? 1 : 0) == 1;
-        return res.getBoolean(R.bool.config_enableLockScreenTranslucentDecor);
+        return res.getBoolean(R.bool.config_enableLockScreenTranslucentDecor)
+            && res.getBoolean(R.bool.config_enableTranslucentDecor);
     }
 
     class ViewManagerHost extends FrameLayout {
